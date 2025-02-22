@@ -72,9 +72,6 @@ jobs:
       - name: 下载依赖
         run: flutter pub get
 
-      - name: 生成代码
-        run: dart run build_runner build
-
       - name: 获取版本号
         if: ${{ matrix.type != 'windows' }}
         run: |
