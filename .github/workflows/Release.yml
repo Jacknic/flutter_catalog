@@ -97,7 +97,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         if: ${{ matrix.type == 'web' }}
         with:
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
           folder: build/web
           clean: true
@@ -143,4 +143,4 @@ jobs:
           draft: false
           artifacts: "*.tar.gz,*.zip,build/app/outputs/flutter-apk/*.apk"
           allowUpdates: true
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
