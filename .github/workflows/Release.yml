@@ -56,6 +56,7 @@ jobs:
         with:
           distribution: "zulu"
           java-version: "17"
+          cache: 'gradle'
 
       - name: Linux环境
         if: ${{ matrix.type == 'linux' }}
@@ -68,6 +69,11 @@ jobs:
         with:
           channel: stable
           flutter-version: 3.29.0
+          cache: true
+          cache-key: "flutter-:os:-:channel:-:version:-:arch:-:hash:"
+          cache-path: "${{ runner.tool_cache }}/flutter/:channel:-:version:-:arch:"
+          pub-cache-key: "flutter-pub:os:-:channel:-:version:-:arch:-:hash:"
+          pub-cache-path: "${{ runner.tool_cache }}/flutter/:channel:-:version:-:arch:"
 
       - name: 下载依赖
         run: flutter pub get
@@ -118,12 +124,6 @@ jobs:
       - name: 打包安卓
         if: ${{ matrix.type == 'android' }}
         run: flutter build apk --split-per-abi
-#        env:
-#          KEYSTORE_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
-#          KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
-#          KEYSTORE_FILE: ${{ secrets.KEYSTORE_FILE }}
-#          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-
 
       - name: 压缩产物
         if: ${{ matrix.type != 'windows' && matrix.type != 'android' }}
