@@ -1,4 +1,4 @@
-name: Flutter 自动化打包
+name: Release
 
 on:
   push:
@@ -42,7 +42,7 @@ jobs:
             output: bundle
 
           - type: android
-            os: macos-latest
+            os: ubuntu-latest
             path: build/app/outputs
             output: flutter-apk
 
@@ -117,7 +117,7 @@ jobs:
 
       - name: 打包安卓
         if: ${{ matrix.type == 'android' }}
-        run: flutter build apk
+        run: flutter build apk --split-per-abi
 #        env:
 #          KEYSTORE_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
 #          KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
@@ -136,10 +136,10 @@ jobs:
         run: |
           Compress-Archive -Path '${{ matrix.path }}\${{ matrix.output }}' -DestinationPath '${{ github.event.repository.name }}-${{ matrix.type }}.zip'
 
-      - name: Release
+      - name: ReleaseAction
         uses: ncipollo/release-action@v1
         with:
-          tag: "v${{ env.version }}"
+          tag: "${{ env.version }}"
           draft: false
           artifacts: "*.tar.gz,*.zip,build/app/outputs/flutter-apk/*.apk"
           allowUpdates: true
