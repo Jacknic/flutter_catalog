@@ -102792,7 +102792,7 @@ p=p===B.fq?s.w:r
 o=A.kJ(B.Z,p,o,s.d)
 p=s.x===B.ep?s.f.d:s.w.b
 p=A.kJ(B.R,r,p,s.d)
-return new A.C0(new A.Bc(s.gaA3(),s.d,s.f,s.r,s.x,s.gau9(),s.gauB(),s.gaub(),s.gaut(),r),"Material 3",o,p,q,!1,r)}}
+return new A.C0(new A.Bc(s.gaA3(),s.d,s.f,s.r,s.x,s.gau9(),s.gauB(),s.gaub(),s.gaut(),r),"Catalog",o,p,q,!1,r)}}
 A.aot.prototype={
 $0(){var s=this.b?B.a4T:B.D8
 this.a.e=s},
