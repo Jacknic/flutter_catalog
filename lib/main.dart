@@ -66,7 +66,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Material 3',
+      title: 'Catalog',
       themeMode: themeMode,
       theme: ThemeData(
         colorSchemeSeed:
