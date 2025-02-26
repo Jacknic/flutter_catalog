@@ -36,27 +36,27 @@ enum ColorSeed {
 enum ColorImageProvider {
   leaves(
     'Leaves',
-    'material/content_based_color_scheme_1.png',
+    'assets/material/content_based_color_scheme_1.png',
   ),
   peonies(
     'Peonies',
-    'material/content_based_color_scheme_2.png',
+    'assets/material/content_based_color_scheme_2.png',
   ),
   bubbles(
     'Bubbles',
-    'material/content_based_color_scheme_3.png',
+    'assets/material/content_based_color_scheme_3.png',
   ),
   seaweed(
     'Seaweed',
-    'material/content_based_color_scheme_4.png',
+    'assets/material/content_based_color_scheme_4.png',
   ),
   seagrapes(
     'Sea Grapes',
-    'material/content_based_color_scheme_5.png',
+    'assets/material/content_based_color_scheme_5.png',
   ),
   petals(
     'Petals',
-    'material/content_based_color_scheme_6.png',
+    'assets/material/content_based_color_scheme_6.png',
   );
 
   const ColorImageProvider(this.label, this.url);
