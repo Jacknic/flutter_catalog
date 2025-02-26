@@ -97,7 +97,7 @@ jobs:
 
       - name: 打包WEB
         if: ${{ matrix.type == 'web' }}
-        run: flutter build web --release --base-href "/${{ github.event.repository.name }}/"
+        run: flutter build web --release --base-href "./"
 
       - name: 将web部署到Github Page
         uses: JamesIves/github-pages-deploy-action@v4
