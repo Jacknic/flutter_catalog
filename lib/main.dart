@@ -51,7 +51,7 @@ class _AppState extends State<App> {
 
   void handleImageSelect(int value) {
     final String url = ColorImageProvider.values[value].url;
-    ColorScheme.fromImageProvider(provider: NetworkImage(url)).then((
+    ColorScheme.fromImageProvider(provider: AssetImage(url)).then((
       newScheme,
     ) {
       setState(() {

@@ -393,7 +393,7 @@ class _ColorImageButton extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image(
-                          image: NetworkImage(currentImageProvider.url),
+                          image: AssetImage(currentImageProvider.url),
                         ),
                       ),
                     ),
@@ -573,7 +573,7 @@ class _ExpandedImageColorAction extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(4.0),
                         child: Image(
-                          image: NetworkImage(ColorImageProvider.values[i].url),
+                          image: AssetImage(ColorImageProvider.values[i].url),
                         ),
                       ),
                     ),
