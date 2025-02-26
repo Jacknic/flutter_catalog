@@ -91148,7 +91148,7 @@ if(a)c.y=A.C(t.N,t.UX)
 s=t.jl
 r=A.b([],s)
 q=c.y.i(0,b)
-if(q==null)q=B.iO
+if(q==null)q=B.iN
 p=A.C(t.ob,t.UX)
 o=c.y.gcw()
 n=o.jp(o)
@@ -91167,8 +91167,8 @@ if(j){r=A.b([],s)
 i=c.y
 i.toString
 q=i.i(0,h.gdX())
-if(q==null)q=B.iO}else{r=B.iO
-q=B.iO}l=h
+if(q==null)q=B.iN}else{r=B.iN
+q=B.iN}l=h
 continue}if(j){i=h.b
 i=i==null?b:i.ga_T()
 j=i===!0}else j=!1
@@ -101624,7 +101624,7 @@ A.aqg.prototype={
 $1(a){return A.Ow(9,new A.aqf(this.a),!0,t.nE)},
 $S:230}
 A.aqf.prototype={
-$1(a){var s=null,r=B.iN[a],q=this.a,p=r===q.d,o=!p||q.e!==B.ep
+$1(a){var s=null,r=B.iM[a],q=this.a,p=r===q.d,o=!p||q.e!==B.ep
 q=p&&q.e!==B.fr?B.MO:B.Nm
 return A.aMU(A.mj(B.b3,A.b([new A.ac(B.pA,A.B2(q,r.d,s),s),new A.ac(B.pE,A.bc(r.c,s,s,s,s,s,s,s,s),s)],t.p),B.dw,B.b3,0,0),o,a,t.S)},
 $S:231}
@@ -101634,7 +101634,7 @@ A.aqe.prototype={
 $1(a){return A.Ow(6,new A.aqd(this.a),!0,t.nE)},
 $S:230}
 A.aqd.prototype={
-$1(a){var s=null,r=B.iM[a],q=this.a
+$1(a){var s=null,r=B.iO[a],q=this.a
 q=r!==q.d||q.e!==B.fr
 return A.aMU(A.mj(B.b3,A.b([new A.ac(B.pA,new A.bU(B.EH,new A.ac(B.dM,A.aKp(A.ft(8),A.aLK(new A.pg(r.d))),s),s),s),new A.ac(B.pE,A.bc(r.c,s,s,s,s,s,s,s,s),s)],t.p),B.jC,B.b3,0,0),q,a,t.S)},
 $S:231}
@@ -101649,15 +101649,15 @@ $1(a){this.a.d.$0()},
 $S:10}
 A.Vo.prototype={
 B(a){var s,r,q,p,o,n=null,m=J.fz(9,t.l7)
-for(s=this.d.d,r=this.e===B.ep,q=0;q<9;++q){p=B.iN[q].d
+for(s=this.d.d,r=this.e===B.ep,q=0;q<9;++q){p=B.iM[q].d
 o=s.k(0,p)&&r
-m[q]=A.ci(p,n,n,B.Om,n,o,n,new A.asQ(this,q),n,B.Ol,n,n,B.iN[q].c)}return new A.bU(B.EP,A.aLC(m,3),n)}}
+m[q]=A.ci(p,n,n,B.Om,n,o,n,new A.asQ(this,q),n,B.Ol,n,n,B.iM[q].c)}return new A.bU(B.EP,A.aLC(m,3),n)}}
 A.asQ.prototype={
 $0(){this.a.c.$1(this.b)},
 $S:0}
 A.Vp.prototype={
 B(a){var s,r,q,p,o,n,m,l,k=null,j=J.fz(6,t.l7)
-for(s=this.d,r=this.e===B.fr,q=0;q<6;++q){p=B.iM[q]
+for(s=this.d,r=this.e===B.fr,q=0;q<6;++q){p=B.iO[q]
 o=new A.aI(4,4)
 n=new A.aI(4,4)
 m=s===p&&r?3:0
@@ -101776,7 +101776,7 @@ default:s=null}return s},
 atp(a){this.N(new A.anX(this,a))},
 atR(){this.N(new A.ao0(this))},
 atr(a){this.N(new A.anY(this,a))},
-atJ(a){A.a5i(new A.pg(B.iM[a].d)).cB(new A.ao_(this,a),t.P)},
+atJ(a){A.a5i(new A.pg(B.iO[a].d)).cB(new A.ao_(this,a),t.P)},
 B(a){var s=this,r=null,q=s.e,p=s.x,o=p===B.ep?s.f.d:r
 p=p===B.fr?s.w:r
 o=A.kE(B.Z,p,o,s.d)
@@ -101794,7 +101794,7 @@ $S:0}
 A.anY.prototype={
 $0(){var s=this.a
 s.x=B.ep
-s.f=B.iN[this.b]},
+s.f=B.iM[this.b]},
 $S:0}
 A.ao_.prototype={
 $1(a){var s=this.a
@@ -101803,7 +101803,7 @@ $S:597}
 A.anZ.prototype={
 $0(){var s=this.a
 s.x=B.fr
-s.r=B.iM[this.b]
+s.r=B.iO[this.b]
 s.w=this.c},
 $S:0}
 A.vJ.prototype={
@@ -106729,7 +106729,7 @@ B.aT=new A.tM(2,"antiAlias")
 B.cC=new A.tM(3,"antiAliasWithSaveLayer")
 B.kr=new A.tQ(0,"pasteable")
 B.ks=new A.tQ(1,"unknown")
-B.oj=new A.l5("Leaves","material/content_based_color_scheme_1.png",0,"leaves")
+B.oj=new A.l5("Leaves","assets/material/content_based_color_scheme_1.png",0,"leaves")
 B.H_=new A.Mh(null)
 B.hZ=new A.m(1,0.403921568627451,0.3137254901960784,0.6431372549019608,B.d)
 B.k=new A.m(1,1,1,1,B.d)
@@ -107565,12 +107565,6 @@ B.c7=new A.jz(1,"input")
 B.f8=new A.jz(2,"dialOnly")
 B.dt=new A.jz(3,"inputOnly")
 B.QG=A.b(s([B.b2,B.c7,B.f8,B.dt]),A.ax("z<jz>"))
-B.GB=new A.l5("Peonies","material/content_based_color_scheme_2.png",1,"peonies")
-B.GD=new A.l5("Bubbles","material/content_based_color_scheme_3.png",2,"bubbles")
-B.GA=new A.l5("Seaweed","material/content_based_color_scheme_4.png",3,"seaweed")
-B.GE=new A.l5("Sea Grapes","material/content_based_color_scheme_5.png",4,"seagrapes")
-B.GC=new A.l5("Petals","material/content_based_color_scheme_6.png",5,"petals")
-B.iM=A.b(s([B.oj,B.GB,B.GD,B.GA,B.GE,B.GC]),A.ax("z<l5>"))
 B.Nl=new A.ay(61282,!1)
 B.NO=new A.ig("Cloud",B.Nl,1,"cloud")
 B.Nk=new A.ay(61186,!1)
@@ -107890,7 +107884,7 @@ B.U2=new A.bT([50,B.Jw,100,B.Im,200,B.IQ,300,B.IB,400,B.HH,500,B.Ja,600,B.HI,700
 B.Ub=new A.fB(B.U2,1,1,0.3411764705882353,0.13333333333333333,B.d)
 B.H5=new A.i7("Deep Orange",B.Ub,7,"deepOrange")
 B.H7=new A.i7("Pink",B.lQ,8,"pink")
-B.iN=A.b(s([B.ok,B.H8,B.H3,B.H6,B.Ha,B.H4,B.H9,B.H5,B.H7]),A.ax("z<i7>"))
+B.iM=A.b(s([B.ok,B.H8,B.H3,B.H6,B.Ha,B.H4,B.H9,B.H5,B.H7]),A.ax("z<i7>"))
 B.aE=new A.Ey(0,"upstream")
 B.R8=A.b(s([B.aE,B.m]),A.ax("z<Ey>"))
 B.ae=new A.ru(0,"rtl")
@@ -107960,7 +107954,7 @@ B.Rx=A.b(s([]),t.D)
 B.RA=A.b(s([]),t.fJ)
 B.RK=A.b(s([]),t.ER)
 B.RF=A.b(s([]),t.tc)
-B.iO=A.b(s([]),t.jl)
+B.iN=A.b(s([]),t.jl)
 B.RI=A.b(s([]),t.wi)
 B.RH=A.b(s([]),A.ax("z<aMK<@>>"))
 B.ly=A.b(s([]),t.AO)
@@ -107979,6 +107973,12 @@ B.EZ=new A.dq(0.75,B.cz,B.oA,B.xg,1.5)
 B.RP=A.b(s([B.EZ]),t.sq)
 B.RQ=A.b(s([B.n_,B.D6,B.n0,B.D9,B.n1,B.Da,B.n2,B.Db,B.n3,B.Dc,B.mZ,B.D2]),t.JN)
 B.fP=A.b(s([B.dA,B.d3,B.hD,B.hE,B.kb]),t.QP)
+B.GC=new A.l5("Peonies","assets/material/content_based_color_scheme_2.png",1,"peonies")
+B.GD=new A.l5("Bubbles","assets/material/content_based_color_scheme_3.png",2,"bubbles")
+B.GE=new A.l5("Seaweed","assets/material/content_based_color_scheme_4.png",3,"seaweed")
+B.GA=new A.l5("Sea Grapes","assets/material/content_based_color_scheme_5.png",4,"seagrapes")
+B.GB=new A.l5("Petals","assets/material/content_based_color_scheme_6.png",5,"petals")
+B.iO=A.b(s([B.oj,B.GC,B.GD,B.GE,B.GA,B.GB]),A.ax("z<l5>"))
 B.Hs=new A.m(0.2,0,0,0,B.d)
 B.EY=new A.dq(-1,B.cz,B.Hs,B.xg,1)
 B.HX=new A.m(0.1411764705882353,0,0,0,B.d)
