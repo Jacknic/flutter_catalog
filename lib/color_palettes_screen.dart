@@ -47,34 +47,32 @@ class ColorPalettesScreen extends StatelessWidget {
     }
 
     Widget dynamicColorNotice() => RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
-        style: Theme.of(context).textTheme.bodySmall,
-        children: [
-          const TextSpan(
-            text:
-            'To create color schemes based on a '
-                'platform\'s implementation of dynamic color, '
-                'use the ',
+          textAlign: TextAlign.center,
+          text: TextSpan(
+            style: Theme.of(context).textTheme.bodySmall,
+            children: [
+              const TextSpan(
+                text: 'To create color schemes based on a '
+                    'platform\'s implementation of dynamic color, '
+                    'use the ',
+              ),
+              TextSpan(
+                text: 'dynamic_color',
+                style: const TextStyle(decoration: TextDecoration.underline),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () async {
+                    final url = Uri.parse(
+                      'https://pub.dev/packages/dynamic_color',
+                    );
+                    if (!await launchUrl(url)) {
+                      throw Exception('Could not launch $url');
+                    }
+                  },
+              ),
+              const TextSpan(text: ' package.'),
+            ],
           ),
-          TextSpan(
-            text: 'dynamic_color',
-            style: const TextStyle(decoration: TextDecoration.underline),
-            recognizer:
-            TapGestureRecognizer()
-              ..onTap = () async {
-                final url = Uri.parse(
-                  'https://pub.dev/packages/dynamic_color',
-                );
-                if (!await launchUrl(url)) {
-                  throw Exception('Could not launch $url');
-                }
-              },
-          ),
-          const TextSpan(text: ' package.'),
-        ],
-      ),
-    );
+        );
 
     return Expanded(
       child: LayoutBuilder(

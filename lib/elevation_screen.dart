@@ -71,17 +71,17 @@ class ElevationGrid extends StatelessWidget {
   final Color? surfaceTintColor;
 
   List<ElevationCard> elevationCards(
-      Color? shadowColor,
-      Color? surfaceTintColor,
-      ) {
+    Color? shadowColor,
+    Color? surfaceTintColor,
+  ) {
     return elevations
         .map(
           (elevationInfo) => ElevationCard(
-        info: elevationInfo,
-        shadowColor: shadowColor,
-        surfaceTint: surfaceTintColor,
-      ),
-    )
+            info: elevationInfo,
+            shadowColor: shadowColor,
+            surfaceTint: surfaceTintColor,
+          ),
+        )
         .toList();
   }
 

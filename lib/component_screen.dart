@@ -49,8 +49,7 @@ class FirstComponentList extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverPadding(
-            padding:
-            showSecondList
+            padding: showSecondList
                 ? const EdgeInsetsDirectional.only(end: smallSpacing)
                 : EdgeInsets.zero,
             sliver: SliverList(
@@ -135,9 +134,9 @@ class _CacheHeight extends SingleChildRenderObjectWidget {
 
   @override
   void updateRenderObject(
-      BuildContext context,
-      _RenderCacheHeight renderObject,
-      ) {
+    BuildContext context,
+    _RenderCacheHeight renderObject,
+  ) {
     renderObject
       ..heights = heights
       ..index = index;
@@ -189,11 +188,11 @@ class BuildSlivers extends SliverChildBuilderDelegate {
 
   @override
   double? estimateMaxScrollOffset(
-      int firstIndex,
-      int lastIndex,
-      double leadingScrollOffset,
-      double trailingScrollOffset,
-      ) {
+    int firstIndex,
+    int lastIndex,
+    double leadingScrollOffset,
+    double trailingScrollOffset,
+  ) {
     return heights.reduce((sum, height) => (sum ?? 0) + (height ?? 0))!;
   }
 }
@@ -323,7 +322,7 @@ class _ButtonsState extends State<Buttons> {
     return const ComponentDecoration(
       label: 'Common buttons',
       tooltipMessage:
-      'Use ElevatedButton, FilledButton, FilledButton.tonal, OutlinedButton, or TextButton',
+          'Use ElevatedButton, FilledButton, FilledButton.tonal, OutlinedButton, or TextButton',
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
@@ -438,7 +437,7 @@ class FloatingActionButtons extends StatelessWidget {
     return ComponentDecoration(
       label: 'Floating action buttons',
       tooltipMessage:
-      'Use FloatingActionButton or FloatingActionButton.extended',
+          'Use FloatingActionButton or FloatingActionButton.extended',
       child: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
         runSpacing: smallSpacing,
@@ -574,9 +573,9 @@ class _ClearButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => IconButton(
-    icon: const Icon(Icons.clear),
-    onPressed: () => controller.clear(),
-  );
+        icon: const Icon(Icons.clear),
+        onPressed: () => controller.clear(),
+      );
 }
 
 class TextFields extends StatefulWidget {
@@ -737,8 +736,7 @@ class _DialogsState extends State<Dialogs> {
   void openDialog(BuildContext context) {
     showDialog<void>(
       context: context,
-      builder:
-          (context) => AlertDialog(
+      builder: (context) => AlertDialog(
         title: const Text('What is a dialog?'),
         content: const Text(
           'A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made.',
@@ -760,8 +758,7 @@ class _DialogsState extends State<Dialogs> {
   void openFullscreenDialog(BuildContext context) {
     showDialog<void>(
       context: context,
-      builder:
-          (context) => Dialog.fullscreen(
+      builder: (context) => Dialog.fullscreen(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Scaffold(
@@ -790,7 +787,7 @@ class _DialogsState extends State<Dialogs> {
     return ComponentDecoration(
       label: 'Dialog',
       tooltipMessage:
-      'Use showDialog with Dialog.fullscreen, AlertDialog, or SimpleDialog',
+          'Use showDialog with Dialog.fullscreen, AlertDialog, or SimpleDialog',
       child: Wrap(
         alignment: WrapAlignment.spaceBetween,
         children: [
@@ -859,7 +856,7 @@ class _SwitchRowState extends State<SwitchRow> {
   bool value1 = true;
 
   final WidgetStateProperty<Icon?> thumbIcon =
-  WidgetStateProperty.resolveWith<Icon?>((states) {
+      WidgetStateProperty.resolveWith<Icon?>((states) {
     if (states.contains(WidgetState.selected)) {
       return const Icon(Icons.check);
     }
@@ -874,25 +871,23 @@ class _SwitchRowState extends State<SwitchRow> {
         // TODO: use SwitchListTile when thumbIcon is available https://github.com/flutter/flutter/issues/118616
         Switch(
           value: value0,
-          onChanged:
-          widget.isEnabled
+          onChanged: widget.isEnabled
               ? (value) {
-            setState(() {
-              value0 = value;
-            });
-          }
+                  setState(() {
+                    value0 = value;
+                  });
+                }
               : null,
         ),
         Switch(
           thumbIcon: thumbIcon,
           value: value1,
-          onChanged:
-          widget.isEnabled
+          onChanged: widget.isEnabled
               ? (value) {
-            setState(() {
-              value1 = value;
-            });
-          }
+                  setState(() {
+                    value1 = value;
+                  });
+                }
               : null,
         ),
       ],
@@ -1032,7 +1027,7 @@ class _ProgressIndicatorsState extends State<ProgressIndicators> {
     return ComponentDecoration(
       label: 'Progress indicators',
       tooltipMessage:
-      'Use CircularProgressIndicator or LinearProgressIndicator',
+          'Use CircularProgressIndicator or LinearProgressIndicator',
       child: Column(
         children: <Widget>[
           Row(
@@ -1191,12 +1186,11 @@ class _NavigationBarsState extends State<NavigationBars> {
           });
           if (!widget.isExampleBar) widget.onSelectItem!(index);
         },
-        destinations:
-        widget.isExampleBar && widget.isBadgeExample
+        destinations: widget.isExampleBar && widget.isBadgeExample
             ? barWithBadgeDestinations
             : widget.isExampleBar
-            ? exampleBarDestinations
-            : appBarDestinations,
+                ? exampleBarDestinations
+                : appBarDestinations,
       ),
     );
 
@@ -1236,7 +1230,7 @@ class _IconToggleButtonsState extends State<IconToggleButtons> {
     return ComponentDecoration(
       label: 'Icon buttons',
       tooltipMessage:
-      'Use IconButton, IconButton.filled, IconButton.filledTonal, and IconButton.outlined',
+          'Use IconButton, IconButton.filled, IconButton.filledTonal, and IconButton.outlined',
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
@@ -1349,7 +1343,7 @@ class _ChipsState extends State<Chips> {
     return ComponentDecoration(
       label: 'Chips',
       tooltipMessage:
-      'Use ActionChip, FilterChip, or InputChip. \nActionChip can also be used for suggestion chip',
+          'Use ActionChip, FilterChip, or InputChip. \nActionChip can also be used for suggestion chip',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -1611,7 +1605,7 @@ class SnackBarSection extends StatelessWidget {
     return ComponentDecoration(
       label: 'Snackbar',
       tooltipMessage:
-      'Use ScaffoldMessenger.of(context).showSnackBar with SnackBar',
+          'Use ScaffoldMessenger.of(context).showSnackBar with SnackBar',
       child: TextButton(
         onPressed: () {
           final snackBar = SnackBar(
@@ -1665,7 +1659,7 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
 
     buttonList = List.generate(
       buttonList.length,
-          (index) => Padding(
+      (index) => Padding(
         padding: const EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -1773,7 +1767,7 @@ class BottomAppBars extends StatelessWidget {
                 child: const Icon(Icons.add),
               ),
               floatingActionButtonLocation:
-              FloatingActionButtonLocation.endContained,
+                  FloatingActionButtonLocation.endContained,
               bottomNavigationBar: BottomAppBar(
                 child: Row(
                   children: <Widget>[
@@ -1881,7 +1875,7 @@ class NavigationDrawers extends StatelessWidget {
     return ComponentDecoration(
       label: 'Navigation drawer',
       tooltipMessage:
-      'Use NavigationDrawer. For modal navigation drawers, see Scaffold.endDrawer',
+          'Use NavigationDrawer. For modal navigation drawers, see Scaffold.endDrawer',
       child: Column(
         children: [
           const SizedBox(height: 520, child: NavigationDrawerSection()),
@@ -2105,7 +2099,7 @@ class TopAppBars extends StatelessWidget {
     return ComponentDecoration(
       label: 'Top app bars',
       tooltipMessage:
-      'Use AppBar, SliverAppBar, SliverAppBar.medium, or  SliverAppBar.large',
+          'Use AppBar, SliverAppBar, SliverAppBar.medium, or  SliverAppBar.large',
       child: Column(
         children: [
           AppBar(
@@ -2177,7 +2171,7 @@ class _MenusState extends State<Menus> {
   @override
   Widget build(BuildContext context) {
     final List<DropdownMenuEntry<ColorLabel>> colorEntries =
-    <DropdownMenuEntry<ColorLabel>>[];
+        <DropdownMenuEntry<ColorLabel>>[];
     for (final ColorLabel color in ColorLabel.values) {
       colorEntries.add(
         DropdownMenuEntry<ColorLabel>(
@@ -2189,7 +2183,7 @@ class _MenusState extends State<Menus> {
     }
 
     final List<DropdownMenuEntry<IconLabel>> iconEntries =
-    <DropdownMenuEntry<IconLabel>>[];
+        <DropdownMenuEntry<IconLabel>>[];
     for (final IconLabel icon in IconLabel.values) {
       iconEntries.add(
         DropdownMenuEntry<IconLabel>(value: icon, label: icon.label),
@@ -2334,7 +2328,7 @@ class _SearchAnchorsState extends State<SearchAnchors> {
 
   Iterable<Widget> getHistoryList(SearchController controller) {
     return searchHistory.map(
-          (color) => ListTile(
+      (color) => ListTile(
         leading: const Icon(Icons.history),
         title: Text(color.label),
         trailing: IconButton(
@@ -2356,27 +2350,25 @@ class _SearchAnchorsState extends State<SearchAnchors> {
 
   Iterable<Widget> getSuggestions(SearchController controller) {
     final String input = controller.value.text;
-    return ColorItem.values
-        .where((color) => color.label.contains(input))
-        .map(
+    return ColorItem.values.where((color) => color.label.contains(input)).map(
           (filteredColor) => ListTile(
-        leading: CircleAvatar(backgroundColor: filteredColor.color),
-        title: Text(filteredColor.label),
-        trailing: IconButton(
-          icon: const Icon(Icons.call_missed),
-          onPressed: () {
-            controller.text = filteredColor.label;
-            controller.selection = TextSelection.collapsed(
-              offset: controller.text.length,
-            );
-          },
-        ),
-        onTap: () {
-          controller.closeView(filteredColor.label);
-          handleSelection(filteredColor);
-        },
-      ),
-    );
+            leading: CircleAvatar(backgroundColor: filteredColor.color),
+            title: Text(filteredColor.label),
+            trailing: IconButton(
+              icon: const Icon(Icons.call_missed),
+              onPressed: () {
+                controller.text = filteredColor.label;
+                controller.selection = TextSelection.collapsed(
+                  offset: controller.text.length,
+                );
+              },
+            ),
+            onTap: () {
+              controller.closeView(filteredColor.label);
+              handleSelection(filteredColor);
+            },
+          ),
+        );
   }
 
   void handleSelection(ColorItem color) {

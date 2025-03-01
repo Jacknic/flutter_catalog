@@ -68,8 +68,7 @@ class _ColorBoxState extends State<ColorBox> {
                       // Copy color as hex to clipboard
                       final c = widget.color;
 
-                      final hex =
-                          '#${_colorChannelToHex(c.r)}'
+                      final hex = '#${_colorChannelToHex(c.r)}'
                           '${_colorChannelToHex(c.g)}'
                           '${_colorChannelToHex(c.b)}';
 

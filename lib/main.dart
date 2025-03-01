@@ -23,12 +23,12 @@ class _AppState extends State<App> {
   ColorSelectionMethod colorSelectionMethod = ColorSelectionMethod.colorSeed;
 
   bool get useLightMode => switch (themeMode) {
-    ThemeMode.system =>
-      View.of(context).platformDispatcher.platformBrightness ==
-          Brightness.light,
-    ThemeMode.light => true,
-    ThemeMode.dark => false,
-  };
+        ThemeMode.system =>
+          View.of(context).platformDispatcher.platformBrightness ==
+              Brightness.light,
+        ThemeMode.light => true,
+        ThemeMode.dark => false,
+      };
 
   void handleBrightnessChange(bool useLightMode) {
     setState(() {
@@ -69,22 +69,19 @@ class _AppState extends State<App> {
       title: 'Catalog',
       themeMode: themeMode,
       theme: ThemeData(
-        colorSchemeSeed:
-            colorSelectionMethod == ColorSelectionMethod.colorSeed
-                ? colorSelected.color
-                : null,
-        colorScheme:
-            colorSelectionMethod == ColorSelectionMethod.image
-                ? imageColorScheme
-                : null,
+        colorSchemeSeed: colorSelectionMethod == ColorSelectionMethod.colorSeed
+            ? colorSelected.color
+            : null,
+        colorScheme: colorSelectionMethod == ColorSelectionMethod.image
+            ? imageColorScheme
+            : null,
         useMaterial3: useMaterial3,
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
-        colorSchemeSeed:
-            colorSelectionMethod == ColorSelectionMethod.colorSeed
-                ? colorSelected.color
-                : imageColorScheme!.primary,
+        colorSchemeSeed: colorSelectionMethod == ColorSelectionMethod.colorSeed
+            ? colorSelected.color
+            : imageColorScheme!.primary,
         useMaterial3: useMaterial3,
         brightness: Brightness.dark,
       ),

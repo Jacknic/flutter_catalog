@@ -108,87 +108,85 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   }
 
   Widget createScreenFor(
-      ScreenSelected screenSelected,
-      bool showNavBarExample,
-      ) => switch (screenSelected) {
-    ScreenSelected.component => Expanded(
-      child: OneTwoTransition(
-        animation: railAnimation,
-        one: FirstComponentList(
-          showNavBottomBar: showNavBarExample,
-          scaffoldKey: scaffoldKey,
-          showSecondList: showMediumSizeLayout || showLargeSizeLayout,
-        ),
-        two: SecondComponentList(scaffoldKey: scaffoldKey),
-      ),
-    ),
-    ScreenSelected.color => const ColorPalettesScreen(),
-    ScreenSelected.typography => const TypographyScreen(),
-    ScreenSelected.elevation => const ElevationScreen(),
-  };
+    ScreenSelected screenSelected,
+    bool showNavBarExample,
+  ) =>
+      switch (screenSelected) {
+        ScreenSelected.component => Expanded(
+            child: OneTwoTransition(
+              animation: railAnimation,
+              one: FirstComponentList(
+                showNavBottomBar: showNavBarExample,
+                scaffoldKey: scaffoldKey,
+                showSecondList: showMediumSizeLayout || showLargeSizeLayout,
+              ),
+              two: SecondComponentList(scaffoldKey: scaffoldKey),
+            ),
+          ),
+        ScreenSelected.color => const ColorPalettesScreen(),
+        ScreenSelected.typography => const TypographyScreen(),
+        ScreenSelected.elevation => const ElevationScreen(),
+      };
 
   PreferredSizeWidget createAppBar() {
     return AppBar(
-      title:
-      widget.useMaterial3
+      title: widget.useMaterial3
           ? const Text('Material 3')
           : const Text('Material 2'),
-      actions:
-      !showMediumSizeLayout && !showLargeSizeLayout
+      actions: !showMediumSizeLayout && !showLargeSizeLayout
           ? [
-        _BrightnessButton(
-          handleBrightnessChange: widget.handleBrightnessChange,
-        ),
-        _Material3Button(
-          handleMaterialVersionChange:
-          widget.handleMaterialVersionChange,
-        ),
-        _ColorSeedButton(
-          handleColorSelect: widget.handleColorSelect,
-          colorSelected: widget.colorSelected,
-          colorSelectionMethod: widget.colorSelectionMethod,
-        ),
-        _ColorImageButton(
-          handleImageSelect: widget.handleImageSelect,
-          imageSelected: widget.imageSelected,
-          colorSelectionMethod: widget.colorSelectionMethod,
-        ),
-      ]
+              _BrightnessButton(
+                handleBrightnessChange: widget.handleBrightnessChange,
+              ),
+              _Material3Button(
+                handleMaterialVersionChange: widget.handleMaterialVersionChange,
+              ),
+              _ColorSeedButton(
+                handleColorSelect: widget.handleColorSelect,
+                colorSelected: widget.colorSelected,
+                colorSelectionMethod: widget.colorSelectionMethod,
+              ),
+              _ColorImageButton(
+                handleImageSelect: widget.handleImageSelect,
+                imageSelected: widget.imageSelected,
+                colorSelectionMethod: widget.colorSelectionMethod,
+              ),
+            ]
           : [Container()],
     );
   }
 
   Widget _trailingActions() => Column(
-    mainAxisAlignment: MainAxisAlignment.end,
-    children: [
-      Flexible(
-        child: _BrightnessButton(
-          handleBrightnessChange: widget.handleBrightnessChange,
-          showTooltipBelow: false,
-        ),
-      ),
-      Flexible(
-        child: _Material3Button(
-          handleMaterialVersionChange: widget.handleMaterialVersionChange,
-          showTooltipBelow: false,
-        ),
-      ),
-      Flexible(
-        child: _ColorSeedButton(
-          handleColorSelect: widget.handleColorSelect,
-          colorSelected: widget.colorSelected,
-          colorSelectionMethod: widget.colorSelectionMethod,
-        ),
-      ),
-      Flexible(
-        child: _ColorImageButton(
-          handleImageSelect: widget.handleImageSelect,
-          imageSelected: widget.imageSelected,
-          colorSelectionMethod: widget.colorSelectionMethod,
-        ),
-      ),
-    ],
-  );
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Flexible(
+            child: _BrightnessButton(
+              handleBrightnessChange: widget.handleBrightnessChange,
+              showTooltipBelow: false,
+            ),
+          ),
+          Flexible(
+            child: _Material3Button(
+              handleMaterialVersionChange: widget.handleMaterialVersionChange,
+              showTooltipBelow: false,
+            ),
+          ),
+          Flexible(
+            child: _ColorSeedButton(
+              handleColorSelect: widget.handleColorSelect,
+              colorSelected: widget.colorSelected,
+              colorSelectionMethod: widget.colorSelectionMethod,
+            ),
+          ),
+          Flexible(
+            child: _ColorImageButton(
+              handleImageSelect: widget.handleImageSelect,
+              imageSelected: widget.imageSelected,
+              colorSelectionMethod: widget.colorSelectionMethod,
+            ),
+          ),
+        ],
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -217,20 +215,19 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             trailing: Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 20),
-                child:
-                showLargeSizeLayout
+                child: showLargeSizeLayout
                     ? _ExpandedTrailingActions(
-                  useLightMode: widget.useLightMode,
-                  handleBrightnessChange: widget.handleBrightnessChange,
-                  useMaterial3: widget.useMaterial3,
-                  handleMaterialVersionChange:
-                  widget.handleMaterialVersionChange,
-                  handleImageSelect: widget.handleImageSelect,
-                  handleColorSelect: widget.handleColorSelect,
-                  colorSelectionMethod: widget.colorSelectionMethod,
-                  imageSelected: widget.imageSelected,
-                  colorSelected: widget.colorSelected,
-                )
+                        useLightMode: widget.useLightMode,
+                        handleBrightnessChange: widget.handleBrightnessChange,
+                        useMaterial3: widget.useMaterial3,
+                        handleMaterialVersionChange:
+                            widget.handleMaterialVersionChange,
+                        handleImageSelect: widget.handleImageSelect,
+                        handleColorSelect: widget.handleColorSelect,
+                        colorSelectionMethod: widget.colorSelectionMethod,
+                        imageSelected: widget.imageSelected,
+                        colorSelected: widget.colorSelected,
+                      )
                     : _trailingActions(),
               ),
             ),
@@ -267,8 +264,7 @@ class _BrightnessButton extends StatelessWidget {
       preferBelow: showTooltipBelow,
       message: 'Toggle brightness',
       child: IconButton(
-        icon:
-        isBright
+        icon: isBright
             ? const Icon(Icons.dark_mode_outlined)
             : const Icon(Icons.light_mode_outlined),
         onPressed: () => handleBrightnessChange(!isBright),
@@ -293,8 +289,7 @@ class _Material3Button extends StatelessWidget {
       preferBelow: showTooltipBelow,
       message: 'Switch to Material ${useMaterial3 ? 2 : 3}',
       child: IconButton(
-        icon:
-        useMaterial3
+        icon: useMaterial3
             ? const Icon(Icons.filter_2)
             : const Icon(Icons.filter_3),
         onPressed: handleMaterialVersionChange,
@@ -326,8 +321,7 @@ class _ColorSeedButton extends StatelessWidget {
 
           return PopupMenuItem(
             value: index,
-            enabled:
-            currentColor != colorSelected ||
+            enabled: currentColor != colorSelected ||
                 colorSelectionMethod != ColorSelectionMethod.colorSeed,
             child: Wrap(
               children: [
@@ -335,7 +329,7 @@ class _ColorSeedButton extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 10),
                   child: Icon(
                     currentColor == colorSelected &&
-                        colorSelectionMethod != ColorSelectionMethod.image
+                            colorSelectionMethod != ColorSelectionMethod.image
                         ? Icons.color_lens
                         : Icons.color_lens_outlined,
                     color: currentColor.color,
@@ -378,8 +372,7 @@ class _ColorImageButton extends StatelessWidget {
 
           return PopupMenuItem(
             value: index,
-            enabled:
-            currentImageProvider != imageSelected ||
+            enabled: currentImageProvider != imageSelected ||
                 colorSelectionMethod != ColorSelectionMethod.image,
             child: Wrap(
               crossAxisAlignment: WrapCrossAlignment.center,
@@ -514,11 +507,10 @@ class _ExpandedColorSeedAction extends StatelessWidget {
         crossAxisCount: 3,
         children: List.generate(
           ColorSeed.values.length,
-              (i) => IconButton(
+          (i) => IconButton(
             icon: const Icon(Icons.radio_button_unchecked),
             color: ColorSeed.values[i].color,
-            isSelected:
-            colorSelected.color == ColorSeed.values[i].color &&
+            isSelected: colorSelected.color == ColorSeed.values[i].color &&
                 colorSelectionMethod == ColorSelectionMethod.colorSeed,
             selectedIcon: const Icon(Icons.circle),
             onPressed: () {
@@ -553,7 +545,7 @@ class _ExpandedImageColorAction extends StatelessWidget {
           crossAxisCount: 3,
           children: List.generate(
             ColorImageProvider.values.length,
-                (i) => Tooltip(
+            (i) => Tooltip(
               message: ColorImageProvider.values[i].name,
               child: InkWell(
                 borderRadius: BorderRadius.circular(4.0),
@@ -562,10 +554,8 @@ class _ExpandedImageColorAction extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Material(
                     borderRadius: BorderRadius.circular(4.0),
-                    elevation:
-                    imageSelected == ColorImageProvider.values[i] &&
-                        colorSelectionMethod ==
-                            ColorSelectionMethod.image
+                    elevation: imageSelected == ColorImageProvider.values[i] &&
+                            colorSelectionMethod == ColorSelectionMethod.image
                         ? 3
                         : 0,
                     child: Padding(
@@ -658,44 +648,45 @@ class _NavigationTransitionState extends State<NavigationTransition> {
   }
 }
 
-final List<NavigationRailDestination> navRailDestinations =
-appBarDestinations
+final List<NavigationRailDestination> navRailDestinations = appBarDestinations
     .map(
       (destination) => NavigationRailDestination(
-    icon: Tooltip(message: destination.label, child: destination.icon),
-    selectedIcon: Tooltip(
-      message: destination.label,
-      child: destination.selectedIcon,
-    ),
-    label: Text(destination.label),
-  ),
-)
+        icon: Tooltip(message: destination.label, child: destination.icon),
+        selectedIcon: Tooltip(
+          message: destination.label,
+          child: destination.selectedIcon,
+        ),
+        label: Text(destination.label),
+      ),
+    )
     .toList();
 
 class SizeAnimation extends CurvedAnimation {
   SizeAnimation(Animation<double> parent)
       : super(
-    parent: parent,
-    curve: const Interval(0.2, 0.8, curve: Curves.easeInOutCubicEmphasized),
-    reverseCurve: Interval(
-      0,
-      0.2,
-      curve: Curves.easeInOutCubicEmphasized.flipped,
-    ),
-  );
+          parent: parent,
+          curve:
+              const Interval(0.2, 0.8, curve: Curves.easeInOutCubicEmphasized),
+          reverseCurve: Interval(
+            0,
+            0.2,
+            curve: Curves.easeInOutCubicEmphasized.flipped,
+          ),
+        );
 }
 
 class OffsetAnimation extends CurvedAnimation {
   OffsetAnimation(Animation<double> parent)
       : super(
-    parent: parent,
-    curve: const Interval(0.4, 1.0, curve: Curves.easeInOutCubicEmphasized),
-    reverseCurve: Interval(
-      0,
-      0.2,
-      curve: Curves.easeInOutCubicEmphasized.flipped,
-    ),
-  );
+          parent: parent,
+          curve:
+              const Interval(0.4, 1.0, curve: Curves.easeInOutCubicEmphasized),
+          reverseCurve: Interval(
+            0,
+            0.2,
+            curve: Curves.easeInOutCubicEmphasized.flipped,
+          ),
+        );
 }
 
 class RailTransition extends StatefulWidget {
