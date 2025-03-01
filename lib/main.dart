@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'constants.dart';
 import 'home.dart';
@@ -30,9 +31,27 @@ class _AppState extends State<App> {
         ThemeMode.dark => false,
       };
 
-  void handleBrightnessChange(bool useLightMode) {
+
+  @override
+  void initState() {
+    super.initState();
+    _loadThemeMode();
+  }
+
+  Future<void> _loadThemeMode() async {
+    final prefs = await SharedPreferences.getInstance();
     setState(() {
-      themeMode = useLightMode ? ThemeMode.light : ThemeMode.dark;
+      final index = prefs.getInt(keyThemeMode) ?? 0;
+      var mode = ThemeMode.values[index];
+      setState(() {
+        themeMode = mode;
+      });
+    });
+  }
+
+  void handleBrightnessChange(ThemeMode mode) {
+    setState(() {
+        themeMode = mode;
     });
   }
 

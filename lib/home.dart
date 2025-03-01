@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'color_palettes_screen.dart';
 import 'component_screen.dart';
@@ -30,7 +31,7 @@ class Home extends StatefulWidget {
   final ColorImageProvider imageSelected;
   final ColorSelectionMethod colorSelectionMethod;
 
-  final void Function(bool useLightMode) handleBrightnessChange;
+  final void Function(ThemeMode mode) handleBrightnessChange;
   final void Function() handleMaterialVersionChange;
   final void Function(int value) handleColorSelect;
   final void Function(int value) handleImageSelect;
@@ -248,7 +249,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   }
 }
 
-class _BrightnessButton extends StatelessWidget {
+class _BrightnessButton extends StatefulWidget {
   const _BrightnessButton({
     required this.handleBrightnessChange,
     this.showTooltipBelow = true,
@@ -258,16 +259,58 @@ class _BrightnessButton extends StatelessWidget {
   final bool showTooltipBelow;
 
   @override
+  State<_BrightnessButton> createState() => _BrightnessButtonState();
+}
+
+class _BrightnessButtonState extends State<_BrightnessButton> {
+  ThemeMode themeMode = ThemeMode.system;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadMode();
+  }
+
+  Future<void> _loadMode() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      final index = prefs.getInt(keyThemeMode) ?? 0;
+      final mode = ThemeMode.values[index];
+      setState(() {
+        themeMode = mode;
+      });
+    });
+  }
+
+  Future<void> _setMode(int modeIndex) async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      themeMode = ThemeMode.values[modeIndex];
+      widget.handleBrightnessChange(themeMode);
+      prefs.setInt(keyThemeMode, modeIndex);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final isBright = Theme.of(context).brightness == Brightness.light;
+    var isBright = themeMode == ThemeMode.light;
+    var isAuto = themeMode == ThemeMode.system;
+    if (isAuto) {
+      isBright = Theme.of(context).brightness == Brightness.light;
+    }
     return Tooltip(
-      preferBelow: showTooltipBelow,
+      preferBelow: widget.showTooltipBelow,
       message: 'Toggle brightness',
       child: IconButton(
-        icon: isBright
-            ? const Icon(Icons.dark_mode_outlined)
-            : const Icon(Icons.light_mode_outlined),
-        onPressed: () => handleBrightnessChange(!isBright),
+        icon: isAuto
+            ? const Icon(Icons.brightness_auto_outlined)
+            : (!isBright
+                ? const Icon(Icons.dark_mode_outlined)
+                : const Icon(Icons.light_mode_outlined)),
+        onPressed: () {
+          var nextIndex = (themeMode.index + 1) % ThemeMode.values.length;
+          _setMode(nextIndex);
+        },
       ),
     );
   }
@@ -419,7 +462,7 @@ class _ExpandedTrailingActions extends StatelessWidget {
     required this.colorSelectionMethod,
   });
 
-  final void Function(bool) handleBrightnessChange;
+  final void Function(ThemeMode) handleBrightnessChange;
   final void Function() handleMaterialVersionChange;
   final void Function(int) handleImageSelect;
   final void Function(int) handleColorSelect;
@@ -448,7 +491,8 @@ class _ExpandedTrailingActions extends StatelessWidget {
               Switch(
                 value: useLightMode,
                 onChanged: (value) {
-                  handleBrightnessChange(value);
+                  handleBrightnessChange(
+                      value ? ThemeMode.light : ThemeMode.dark);
                 },
               ),
             ],

@@ -12,6 +12,7 @@ const double mediumWidthBreakpoint = 1000;
 const double largeWidthBreakpoint = 1500;
 
 const double transitionLength = 500;
+const String keyThemeMode = "ThemeMode";
 
 // Whether the user has chosen a theme color via a direct [ColorSeed] selection,
 // or an image [ColorImageProvider].
@@ -29,6 +30,7 @@ enum ColorSeed {
   pink('Pink', Colors.pink);
 
   const ColorSeed(this.label, this.color);
+
   final String label;
   final Color color;
 }
@@ -60,6 +62,7 @@ enum ColorImageProvider {
   );
 
   const ColorImageProvider(this.label, this.url);
+
   final String label;
   final String url;
 }
@@ -71,5 +74,6 @@ enum ScreenSelected {
   elevation(3);
 
   const ScreenSelected(this.value);
+
   final int value;
 }
