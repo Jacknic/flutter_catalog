@@ -19,30 +19,31 @@ jobs:
 
     strategy:
       matrix:
+        # 镜像版本 https://github.com/actions/runner-images/tree/main/images
         type: [ web, macos, windows, linux, android ]
         include:
           - type: web
-            os: macos-latest
+            os: macos-14
             path: build
             output: web
 
           - type: macos
-            os: macos-latest
+            os: macos-14
             path: build/macos/Build/Products/Release
             output: ${{ github.event.repository.name }}.app
 
           - type: windows
-            os: windows-latest
+            os: windows-2022
             path: build\windows\x64\runner
             output: Release
 
           - type: linux
-            os: ubuntu-latest
+            os: ubuntu-24.04
             path: build/linux/x64/release
             output: bundle
 
           - type: android
-            os: ubuntu-latest
+            os: ubuntu-24.04
             path: build/app/outputs
             output: flutter-apk
 
