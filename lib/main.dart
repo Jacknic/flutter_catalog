@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'constants.dart';
-import 'home.dart';
+import 'home/constants.dart';
+import 'home/home.dart';
 
 void main() async {
   runApp(const App());
